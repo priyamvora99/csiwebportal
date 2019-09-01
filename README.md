@@ -1,4 +1,4 @@
-# web_portal
+# A web portal to aid DJCSI Tech Team
 
 > A Vue.js project
 
