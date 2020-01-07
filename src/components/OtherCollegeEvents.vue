@@ -103,7 +103,7 @@ export default {
         alert("Select a file to upload");
       }else{
         var fileName = this.fileName;
-        var storageRef = firebase.storage().ref(fileName);
+        var storageRef = firebase.storage().ref('intracollege_images/'+fileName);
         var uploadTask = storageRef.put(this.file);
         uploadTask.on('state_changed', function(snapshot){
       }, function(error) {
