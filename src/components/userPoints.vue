@@ -80,6 +80,7 @@ export default {
                     var childData = childSnapshot.val();                    
                     var temp = childData.name;                    
                     if(temp.localeCompare(self.name) === 0) {
+                        console.log(childData);
                         if(childSnapshot.hasChild("csiMember")) {
                             self.csiMember = true; 
                             self.disabled_status = false;
@@ -126,7 +127,7 @@ export default {
             console.log("CSI member exists: "+check);        
             */
             
-            if(self.status.localeCompare("checked") === 0) {
+            if(self.status.localeCompare("checked") !== 0) {
                 //delete CSI memebership, override the details
                 data.child(self.uid).set({
                     SAP: self.SAP,
