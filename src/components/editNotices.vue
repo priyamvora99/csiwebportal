@@ -27,7 +27,7 @@ export default {
     },
     getData:function(){
       var self=this;
-      this.$http.get("https://djcsi-3e43d.firebaseio.com/notices.json").then(function(data){
+      this.$http.get("https://djcsi-b13a9.firebaseio.com/notices.json").then(function(data){
         var propData=[];
         var tableFields=['name','url'];
 

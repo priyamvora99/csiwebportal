@@ -84,7 +84,7 @@
 
     <v-btn v-on:click.prevent="post" id="noticeButton" class="blue lighten-2 mt-5" dark large>Submit</v-btn>
     <div v-if="submitted">
-    <h3>Thankyou your Submitting</h3>
+    <h3>Thankyou for submitting!</h3>
     </div>
     </v-form>
 
@@ -174,12 +174,12 @@ export default {
       alert("Please enter the option 2 ");
     }
 else{
-      this.$http.get("https://djcsi-3e43d.firebaseio.com/polls.json").then(function(data){
-        console.log(data);
-        var pollId;
-        var self=this;
-        pollId=Math.max(...Object.keys(data.body));
-        this.pollId=pollId+1;
+       this.$http.get("https://djcsi-b13a9.firebaseio.com/polls.json").then(function(data){
+         console.log(data);
+         var pollId;
+         var self=this;
+         pollId=Math.max(...Object.keys(data.body));
+         this.pollId=pollId+1;
         var storeData=firebase.database().ref("polls");
 
           storeData.child(this.pollId).set(this.polls).then(function(){

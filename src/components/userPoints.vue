@@ -71,16 +71,19 @@ export default {
 
     methods: {
         search() {
-            var flag = 0;
+            var flag = 0,temp;
             var self = this;
             var storeData = firebase.database().ref("userPoints");                    
             
-            storeData.on("value", function(snapshot){
+            /*storeData.on("value", function(snapshot){
                 snapshot.forEach(function(childSnapshot){                                          
                     var childData = childSnapshot.val();                    
-                    var temp = childData.name;                    
+                    temp = childData.name;
+                    console.log("UID: "+childSnapshot.key); 
+                    count++;
+                                       
                     if(temp.localeCompare(self.name) === 0) {
-                        console.log(childData);
+                        //console.log(childData);
                         if(childSnapshot.hasChild("csiMember")) {
                             self.csiMember = true; 
                             self.disabled_status = false;
@@ -95,20 +98,52 @@ export default {
                         self.points = childData.points; 
                         self.uid = childSnapshot.key;
                         flag = 1;                       
-                        return true;                       
+                        //return true;                       
                     }
                 });
             });
             
+
             if(flag === 0) {
                 alert('No users found.');
+                console.log(count);
                 self.SAP = "";
                 self.email = "";
                 self.points = 0;
                 self.uid = "";
                 self.csiMember = '';
             }
+            */
+            storeData.orderByChild('name').equalTo(self.name)
+            .on("value",function(snapshot){                                                
+                snapshot.forEach(function(data){  
+                    //console.log(data.val());
+                    var obj = data.val();
+                    if(snapshot.hasChild("csiMember")) {
+                        self.csiMember = true; 
+                        self.disabled_status = false;
+                    }                                                    
+                    else {
+                        self.csiMember = false;
+                        self.disabled_status = true;
+                    }
+
+                    self.SAP = obj.SAP;
+                    self.email = obj.email;
+                    self.points = obj.points; 
+                    self.uid = data.key;
+                    flag = 1; 
+                });                                              
+            });
             
+            if(flag === 0) {
+                alert('No users found.');                
+                self.SAP = "";
+                self.email = "";
+                self.points = 0;
+                self.uid = "";
+                self.csiMember = '';
+            }
         },
         
         editUserPoints:function() {
@@ -127,7 +162,7 @@ export default {
             console.log("CSI member exists: "+check);        
             */
             
-            if(self.status.localeCompare("checked") !== 0) {
+            if(self.status.localeCompare("checked") === 0) {
                 //delete CSI memebership, override the details
                 data.child(self.uid).set({
                     SAP: self.SAP,

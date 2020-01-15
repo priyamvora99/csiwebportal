@@ -18,9 +18,8 @@ import start from './components/start.vue';
 import participantsExcel from './components/participantsExcel.vue';
 import editQuiz from './components/editQuiz.vue';
 import editPolls from './components/editPolls.vue';
-
-
-
+import intraColleges from './components/intraColleges.vue';
+import userPoints from './components/userPoints.vue';
 
 export default[
   {path:'/signUp',component:Signup},
@@ -34,14 +33,15 @@ export default[
   {path:'/Quiz',component:Quiz},
   {path:'/Events',component:Events},
   {path:'/addRole',component:addRole},
-{path:'/accessList',component:accessList},
-{path:'/csiMemberExcel',component:csiMemberExcel},
-{path:'/participantsExcel',component:participantsExcel},
-{path:'/editVideos',component:editVid},
-{path:'/editTable',component:editTab},
-{path:'/editProtocols',component:editProto},
+  {path:'/accessList',component:accessList},
+  {path:'/csiMemberExcel',component:csiMemberExcel},
+  {path:'/participantsExcel',component:participantsExcel},
+  {path:'/editVideos',component:editVid},
+  {path:'/editTable',component:editTab},
+  {path:'/editProtocols',component:editProto},
   {path:'/editNotices',component:editNotices},
   {path:'/editQuiz',component:editQuiz},
   {path:'/editPolls',component:editPolls},
-
+  {path:'/intraColleges',component:intraColleges},  
+  {path:'/userPoints',component:userPoints}
 ]

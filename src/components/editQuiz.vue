@@ -27,7 +27,7 @@ export default {
     },
     getData:function(){
       var self=this;
-      this.$http.get("https://djcsi-3e43d.firebaseio.com/quiz.json").then(function(data){
+      this.$http.get("https://djcsi-b13a9.firebaseio.com/quiz.json").then(function(data){
 
         var propData=[];
         var tableFields=['question','answer','point_weight','start_date','expiry_date','value 0','value 1','value 2'];

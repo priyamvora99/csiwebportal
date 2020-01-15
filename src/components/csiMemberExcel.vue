@@ -8,7 +8,7 @@
 <v-btn v-on:click="onexport_csimembers" id="noticeButton" class="blue lighten-2 mt-5" dark large>Excel for CSI Member Details </v-btn>
 <br />
 
-<div  v-for="blog in blogs" class="single-blog">
+<div v-for="blog in blogs" class="single-blog">
  <h3>{{blog.SAP}} : {{ blog.name }}</h3>
 </div>
 
@@ -72,25 +72,20 @@ csiMember_Timestamp:"",
           created()
             {
 
-                              var milliseconds = new Date().getTime();
+                    var milliseconds = new Date().getTime();
                           //    console.log(milliseconds);
+                    var millis = new Date("Jan 30 2019 00:00:00").getTime();
+                    console.log(millis);
+                  
+                    var csiMember_Timestamp = [];
+                    var returnArr = [];
 
-
-                             var millis = new Date("Jan 30 2019 00:00:00").getTime();
-                              console.log(millis);
-
-                  // var d = new Date(1585506600000);
-                  // console.log(d);
-
-                             var csiMember_Timestamp = [];
-                              var returnArr = [];
-
-                              var storeData = firebase.database().ref("userPoints");
+                    var storeData = firebase.database().ref("userPoints");
 
 
                             //------------
 
-                            storeData.on("value", function(snapshot) {
+                    storeData.on("value", function(snapshot) {
                            snapshot.forEach(function(childSnapshot) {
                             var childData = childSnapshot.val();
                             var id=childData.id;
@@ -98,28 +93,23 @@ csiMember_Timestamp:"",
                             if(childSnapshot.hasChild("csiMember")) {
 
                                 var membershipValidity = childData.csiMember;
-
                                 console.log("Validity" + membershipValidity);
-
                                 if(milliseconds < membershipValidity) {
-
                                   var item = childData;
                                   item.key = childData.key;
-
                                   returnArr.push(item);
                                 }
-
                             }
 
                           });
-                          });
+                    });
 
                             //------------
-                            this.csiMember_Timestamp = csiMember_Timestamp;
+                    this.csiMember_Timestamp = csiMember_Timestamp;
 
 
-                  this.blogs = returnArr;
-                console.log("CSI MEMEBERS: "+this.blogs);
+                    this.blogs = returnArr;
+                    console.log("CSI MEMEBERS: "+this.blogs);
 
 }
 

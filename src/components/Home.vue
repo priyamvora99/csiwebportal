@@ -15,8 +15,8 @@
 </section>
 
 <br><br>
-<h1 class="text-xs-center">Welcome to the DJCSI Web Portal</h1>
-<!--<h1 class="text-xs-center">Welcome to the DJCSI web Portal: {{this.userName}}</h1>-->
+<!-- <h1 class="text-xs-center">Welcome to the DJCSI Web Portal</h1> -->
+<h1 class="text-xs-center">Welcome to the DJCSI web Portal: {{this.userName}}</h1>
   </div>
 </template>
 

@@ -24,9 +24,7 @@
       <label class="videosLabel">Youtube Id: </label><v-text-field value="youtubeId" class="videosText" placeholder="Enter youtube id" required v-model="videos[0].youtubeId"/><br>
       <v-btn v-on:click.prevent="postData" id="videosButton" class="blue lighten-2 mt-5" dark large>Submit</v-btn>
       <v-btn id="videosButton" class="blue lighten-2 mt-5" dark large v-on:click="goToEdit">Edit</v-btn>
-
-
-   </input>
+    </input>
     </form>
     <div id="preview-container">
       <div id="preview">
@@ -99,7 +97,7 @@ export default {
           var ref = firebase.database().ref('videoCategories');
           var key = this.play;
           console.log(key);
-          self.$http.get("https://djcsi-3e43d.firebaseio.com/videoCategories/"+key+"/videos.json").then(function(videosData){
+          self.$http.get("https://djcsi-b13a9.firebaseio.com/videoCategories/"+key+"/videos.json").then(function(videosData){
               var videoNumber;
               videoNumber=Math.max(...Object.keys(videosData.body));
               this.videoNumber=videoNumber+1;
@@ -118,7 +116,7 @@ export default {
       }else{
 
         var self=this;
-        this.$http.get("https://djcsi-3e43d.firebaseio.com/videoCategories.json").then(function(data){
+        this.$http.get("https://djcsi-b13a9.firebaseio.com/videoCategories.json").then(function(data){
           console.log(data);
             var playlistNumber;
             playlistNumber=Math.max(...Object.keys(data.body));
@@ -155,7 +153,7 @@ export default {
       var self=this;
 
 
-        this.$http.get("https://djcsi-3e43d.firebaseio.com/videoCategories.json").then(function(data){
+        this.$http.get("https://djcsi-b13a9.firebaseio.com/videoCategories.json").then(function(data){
           self.playListNames=[];
           console.log(data);
           Object.keys(data.body).forEach(function(key){

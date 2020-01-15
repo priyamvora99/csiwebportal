@@ -5,7 +5,7 @@
     <form>
     <!--  <h2 class="text-xs-center" id="protocolHeading">Add Protocol</h2> -->
     <u><h2 class="text-xs-center">Add Protocols</h2></u>
-      <label class="protocolLabel"l>Name:</label><v-text-field value="protocolName" required v-model="protocolsArray[0].name" class="protocolText" placeholder="Enter protocol name" required/>
+      <label class="protocolLabel">Name:</label><v-text-field value="protocolName" required v-model="protocolsArray[0].name" class="protocolText" placeholder="Enter protocol name"/>
       <label class="protocolLabel">Select a file </label><input type="file" name="urlInput" ref="file"  v-on:change="handleFileUpload()" class="protocolText ">
       <v-btn  v-on:click.prevent="postFileAndGetURL"  id="protocolButton" class="blue lighten-2 mt-5" dark large>Submit</v-btn>
       <v-btn id="protocolButton" class="blue lighten-2 mt-5" dark large v-on:click="editProtocols">Edit</v-btn>
@@ -88,7 +88,7 @@ export default {
 
     },
     insertToDatabase:function(){
-      this.$http.get("https://djcsi-3e43d.firebaseio.com/protocols.json").then(function(data){
+      this.$http.get("https://djcsi-b13a9.firebaseio.com/protocols.json").then(function(data){
         var self=this;
         console.log(data);
         var protocolId;

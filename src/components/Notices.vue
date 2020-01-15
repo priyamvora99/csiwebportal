@@ -6,7 +6,7 @@
     <form>
     <!--  <h2 class="text-xs-center" id="noticeHeading">Add Notice</h2>-->
     <u><h2 class="text-xs-center">Add Notices</h2></u>
-      <label class="noticeLabel"l>Name:</label><v-text-field value="noticeName" required v-model="noticesArray[0].name" class="noticeText" placeholder="Enter notice name" required/>
+      <label class="noticeLabel">Name:</label><v-text-field value="noticeName" required v-model="noticesArray[0].name" class="noticeText" placeholder="Enter notice name"/>
       <label class="noticeLabel">Select a file </label><input type="file" name="urlInput" ref="file"  v-on:change="handleFileUpload()" class="noticeText">
       <v-btn v-on:click.prevent="postFileAndGetURL" id="noticeButton" class="blue lighten-2 mt-5" dark large>Submit</v-btn>
       <v-btn id="noticeButton" v-on:click="editNotices" class="blue lighten-2 mt-5" dark large>Edit</v-btn>
@@ -95,7 +95,7 @@ export default {
 
     },
     insertToDatabase:function(){
-      this.$http.get("https://djcsi-3e43d.firebaseio.com/notices.json").then(function(data){
+      this.$http.get("https://djcsi-b13a9.firebaseio.com/notices.json").then(function(data){
 
         console.log(data);
         var noticeId;

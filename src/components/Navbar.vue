@@ -9,9 +9,10 @@
           <li v-if="showProtocols"><router-link to="/Protocols" exact>Protocols</router-link></li>
           <li v-if="showVideos"><router-link to="/Videos" exact>Videos</router-link></li>
           <li v-if="showEvents"><router-link to="/Events" exact>Events</router-link></li>
-            <li v-if="showCsiMembers"><router-link to="/csiMemberExcel" exact>CSI Members</router-link></li>
-            <li v-if="showParticipants"><router-link to="/participantsExcel" exact>Participants</router-link></li>
-
+          <li v-if="showCsiMembers"><router-link to="/csiMemberExcel" exact>CSI Members</router-link></li>
+          <li v-if="showParticipants"><router-link to="/participantsExcel" exact>Participants</router-link></li>
+          <li v-if="showIntraColleges"><router-link to="/intraColleges" exact>Intra College Events</router-link></li>
+          <li v-if="showUserPoints"><router-link to="/userPoints" exact>User Points</router-link></li>
 
           <li style="float:right" v-on:click="signOut"><a href="#">SignOut</a><!--<router-link to="/" >SignOut</router-link>--></li>
       </ul>
@@ -34,6 +35,8 @@ const state = {
   showEvents:false,
   showCsiMembers:false,
   showParticipants:false,
+  showIntraColleges: false,
+  showUserPoints: false
 }
 export default {
   data () {
@@ -56,10 +59,10 @@ export default {
 
           uid = user.uid;
 
-          self.$http.get("https://djcsi-3e43d.firebaseio.com/userRoles.json").then(function(data){
+          self.$http.get("https://djcsi-b13a9.firebaseio.com/userRoles.json").then(function(data){
               console.log("Test one");
             userRole=data.body[uid];
-            self.$http.get("https://djcsi-3e43d.firebaseio.com/accessList/"+userRole+".json").then(function(data1){
+            self.$http.get("https://djcsi-b13a9.firebaseio.com/accessList/"+userRole+".json").then(function(data1){
               console.log("Test two");
               console.log(data1);
               if(data1 && data1.body){
@@ -83,6 +86,10 @@ export default {
                       self.showCsiMembers=true;
                       else if(data1.body[i]=="participantsExcel")
                       self.showParticipants=true;
+                      else if(data1.body[i]=="intraColleges")
+                      self.showIntraColleges = true;
+                      else if(data1.body[i]=="userPoints")
+                      self.showUserPoints = true;
 
                 }
                 self.showSignout=true;
@@ -116,6 +123,8 @@ export default {
           self.showCsiMembers=false;
           self.showParticipants=false;
           self.showSignout=false;
+          self.showIntraColleges = false;
+          self.showUserPoints = false;
 
           console.log("Signout 2",self.loaded);
             self.$router.push('/');

@@ -24,7 +24,8 @@
     <v-checkbox  label="Events" class="noticeText" value="Events" v-model="roleArray[6]" ></v-checkbox>
     <v-checkbox  label="CSI Members Excel" class="noticeText" value="csiMemberExcel" v-model="roleArray[7]" ></v-checkbox>
     <v-checkbox  label="CSI Participants Excel" class="noticeText" value="participantsExcel" v-model="roleArray[8]" ></v-checkbox>
-
+    <v-checkbox  label="Intra College Events" class="noticeText" value="intraColleges" v-model="roleArray[9]" ></v-checkbox>
+     <v-checkbox  label="User Points" class="noticeText" value="userPoints" v-model="roleArray[10]" ></v-checkbox>
 
                 <v-btn v-on:click.prevent="post" id="noticeButton" class="blue lighten-2 mt-5" dark large>Submit </v-btn>
 
@@ -35,7 +36,7 @@
 
     </div>
 
-  </div>
+  
 </template>
 
 <script>
@@ -84,7 +85,7 @@ export default {
   methods:{
   post:function(){
   var self = this;
-    this.$http.get("https://djcsi-3e43d.firebaseio.com/accessList.json").then(function(data){
+    this.$http.get("https://djcsi-b13a9.firebaseio.com/accessList.json").then(function(data){
       console.log(data);
       var storeData=firebase.database().ref("accessList");
         storeData.child(this.roleName).set(this.roleArray).then(function(){
@@ -98,6 +99,8 @@ export default {
           self.roleArray[6]='';
           self.roleArray[7]='';
           self.roleArray[8]='';
+          self.roleArray[9]='';
+          self.roleArray[10] = '';
           self.$router.push('Home');
         });
 
@@ -113,7 +116,7 @@ export default {
     });
 
 
-    this.$http.get("https://djcsi-3e43d.firebaseio.com/userRoles.json").then(function(data){
+    this.$http.get("https://djcsi-b13a9.firebaseio.com/userRoles.json").then(function(data){
       console.log(data);
       var newRole = {};
       newRole[this.userID] = this.roleName;

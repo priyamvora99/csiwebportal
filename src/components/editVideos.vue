@@ -53,7 +53,7 @@ export default {
     },
     getData:function(){
       var self=this;
-      this.$http.get("https://djcsi-3e43d.firebaseio.com/videoCategories.json").then(function(data){
+      this.$http.get("https://djcsi-b13a9.firebaseio.com/videoCategories.json").then(function(data){
 
         var propData=[];
         var tableFields=['name','youtubeId','playListName','rating','thumb'];

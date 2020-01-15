@@ -39,12 +39,13 @@ const router=new VueRouter({
 
 //Firebase configuration details!
 var config = {
-  apiKey: "AIzaSyAK4u-fDv6geisMAyAkWhELnKcPRbx6XXc",
-  authDomain: "djcsi-3e43d.firebaseapp.com",
-  databaseURL: "https://djcsi-3e43d.firebaseio.com",
-  projectId: "djcsi-3e43d",
-  storageBucket: "djcsi-3e43d.appspot.com",
-  messagingSenderId: "464789121303"
+    apiKey: "AIzaSyD_HVgshSGHzlX1O0lW2Ndqdzx4Unse0Kg",
+    authDomain: "djcsi-b13a9.firebaseapp.com",
+    databaseURL: "https://djcsi-b13a9.firebaseio.com",
+    projectId: "djcsi-b13a9",
+    storageBucket: "djcsi-b13a9.appspot.com",
+    messagingSenderId: "894161111425",
+    appId: "1:894161111425:web:25b1d0c0663d58dda4c080"
 };
 firebase.initializeApp(config);
 

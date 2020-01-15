@@ -111,7 +111,7 @@ fields:[],
   //Code Shastra 0
 
 
-          this.$http.get('https://djcsi-3e43d.firebaseio.com/participants/cds_0.json').then(function(data){
+          this.$http.get('https://djcsi-b13a9.firebaseio.com/participants/cds_0.json').then(function(data){
           var cds0=[];
           var tableFields=['csi_member','leader_college','leader_email','member 0','member 1','member 2','member 3','leader_phone','leader_name','team_name','price','status'];
 
@@ -138,7 +138,7 @@ fields:[],
 // Code Shastra 1
 
 
-        this.$http.get('https://djcsi-3e43d.firebaseio.com/participants/cds_1.json').then(function(data){
+        this.$http.get('https://djcsi-b13a9.firebaseio.com/participants/cds_1.json').then(function(data){
         var cds1=[];
         var tableFields=['csi_member','leader_college','leader_email','member 0','member 1','member 2','member 3','leader_phone','leader_name','team_name','price','status'];
 
@@ -163,7 +163,7 @@ fields:[],
 
 // IV DATA
 
-        this.$http.get('https://djcsi-3e43d.firebaseio.com/participants/iv.json').then(function(data){
+        this.$http.get('https://djcsi-b13a9.firebaseio.com/participants/iv.json').then(function(data){
         var iv=[];
          Object.keys(data.body).forEach(function(idx){
            iv.push(data.body[idx]);

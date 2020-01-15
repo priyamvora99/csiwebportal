@@ -67,7 +67,7 @@ fields:[]
         created()
         {
         var self = this;
-        this.$http.get('https://djcsi-3e43d.firebaseio.com/participants/csi_week.json').then(function(data){
+        this.$http.get('https://djcsi-b13a9.firebaseio.com/participants/csi_week.json').then(function(data){
 
         var propData=[];
         var tableFields=['course_details','csi_member','email','event 0','event 1','event 2','event 3','event 4','name','phone','price','status'];

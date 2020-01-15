@@ -226,7 +226,7 @@ else if(this.events.type===''){
 }
 
 else{
-this.$http.get("https://djcsi-3e43d.firebaseio.com/events.json").then(function(data){
+this.$http.get("https://djcsi-b13a9.firebaseio.com/events.json").then(function(data){
 
   console.log(data);
   var pollId;

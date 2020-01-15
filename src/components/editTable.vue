@@ -11,7 +11,7 @@
 </template>
 
 <script>
-	import bTable from "bootstrap-vue/es/components/table/table";
+  import bTable from "bootstrap-vue/es/components/table/table";
   import videosModal from "./videosModal.vue";
   import protocolsModal from "./protocolsModal.vue";
   import noticesModal from "./noticesModal.vue";

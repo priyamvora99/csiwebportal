@@ -27,7 +27,7 @@ export default {
     },
     getData:function(){
       var self=this;
-      this.$http.get("https://djcsi-3e43d.firebaseio.com/polls.json").then(function(data){
+      this.$http.get("https://djcsi-b13a9.firebaseio.com/polls.json").then(function(data){
 
         var propData=[];
         var tableFields=['question','start_date','expiry_date','option 0','option 1','result 0','result 1'];
