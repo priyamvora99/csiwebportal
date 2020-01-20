@@ -11,11 +11,10 @@
             <v-btn @click="showModal = true" id="noticeButton" class="blue lighten-2 mt-5" dark large>Edit</v-btn>            
             
             <b-modal @input ="showModal = true" @ok="editUserPoints" id="modal" centered title="Edit user details" v-model="showModal"  :no-close-on-backdrop="true"  :hide-header-close="true" :no-close-on-esc="true">
-                <label class="noticeLabel2">Edit Name:</label><v-text-field value="noticeName" required v-model="this.name" class="noticeText2"/>
-                <label class="noticeLabel2">Edit SAP:</label><v-text-field value="noticeName" required v-model="this.SAP" class="noticeText2"/>
-                <label class="noticeLabel2">Edit Email:</label><v-text-field value="noticeName" required v-model="this.email" class="noticeText2"/>
-                <label class="noticeLabel2">Edit Points:</label><v-text-field value="noticeName" required v-model="this.points" class="noticeText2"/>
-                <b-form-checkbox style="margin-left: 30%;" id="checkbox-1" v-model="status" v-if="disabled_status === false" name="checkbox-1" value="checked" unchecked-value="unchecked">Delete CSI Membership?</b-form-checkbox>
+                <label class="noticeLabel2">Edit Name:</label><v-text-field value="noticeName" required v-model="name" class="noticeText2"/>
+                <label class="noticeLabel2">Edit SAP:</label><v-text-field value="noticeName" required v-model="SAP" class="noticeText2"/>
+                <label class="noticeLabel2">Edit Email:</label><v-text-field value="noticeName" required v-model="email" class="noticeText2"/>
+                <label class="noticeLabel2">Edit Points:</label><v-text-field value="noticeName" required v-model="points" class="noticeText2"/>                
             </b-modal>    
         </form>
 
@@ -26,7 +25,13 @@
                 <p class="result-para">Name: {{this.name}}</p>
                 <p class="result-para">UID: {{this.uid}}</p>
                 <p class="result-para">SAP: {{this.SAP}}</p>                    
-                <p class="result-para">CSI Member: {{this.csiMember}}</p>
+                <p class="result-para">
+                    CSI Member: {{this.csiMember}}
+                    <b-form-checkbox style="margin-left: 5%;" id="checkbox-1" v-model="status" v-if="disabled_status === false" name="checkbox-1" value="checked" unchecked-value="unchecked">
+                        Delete membership?    
+                    </b-form-checkbox>
+                    <v-btn v-on:click="deleteMembership" v-if="disabled_status === false" class="blue" dark>Delete</v-btn>    
+                </p>                
                 <p class="result-para">E-mail: {{this.email}}</p>                
                 <p class="result-para">Points: {{this.points}}</p>
             </div>
@@ -59,9 +64,9 @@ export default {
         return {
             name: '',
             SAP: '',
-            csiMember: false,
+            csiMember: 0,
             email: '',
-            points: '',
+            points: 0,
             uid: '',
             showModal: false,
             status: "",
@@ -117,14 +122,14 @@ export default {
             storeData.orderByChild('name').equalTo(self.name)
             .on("value",function(snapshot){                                                
                 snapshot.forEach(function(data){  
-                    //console.log(data.val());
+                    console.log(data.val());
                     var obj = data.val();
-                    if(snapshot.hasChild("csiMember")) {
-                        self.csiMember = true; 
+                    if(obj.csiMember) {
+                        self.csiMember = obj.csiMember; 
                         self.disabled_status = false;
                     }                                                    
                     else {
-                        self.csiMember = false;
+                        self.csiMember = 0;
                         self.disabled_status = true;
                     }
 
@@ -141,52 +146,57 @@ export default {
                 self.SAP = "";
                 self.email = "";
                 self.points = 0;
-                self.uid = "";
-                self.csiMember = '';
+                self.uid = '';
+                self.csiMember = 0;
+                self.disabled_status = true;
             }
         },
         
-        editUserPoints:function() {
-            var self = this, check;           
-            if(self.uid.localeCompare("") === 0) {                
+        editUserPoints() {
+            var self = this;           
+            if(self.uid.localeCompare('') === 0) {                
                 alert("No user data input found. Please search an existing user and then edit its details.");
                 return;
             }
 
             //if non-existing member enters CSI member ID, it would automatically be rejected. 
             var data = firebase.database().ref("userPoints");
-            console.log(self.status);
+            //console.log(self.status);
             /*data.on("value",function(snapshot){
                 check = snapshot.child(self.uid+'/csiMember').exists(); //true if exists, false if it doesn't
             });           
             console.log("CSI member exists: "+check);        
-            */
+            */                                                                        
+            //keep the CSI membership
             
+            data.child(self.uid).set({
+                SAP: self.SAP,
+                csiMember: self.csiMember,
+                email: self.email,
+                name: self.name,
+                points: Number(self.points),                   
+            }).then(function(){
+                alert("Inserted!");
+                self.$router.push('Home');
+            });                
+            
+        },
+        deleteMembership() {
+            var self = this;
             if(self.status.localeCompare("checked") === 0) {
-                //delete CSI memebership, override the details
+                var data = firebase.database().ref("userPoints");
                 data.child(self.uid).set({
                     SAP: self.SAP,
                     email: self.email,
                     name: self.name,
                     points: self.points
                 }).then(function(){
-                    alert("Inserted!");                        
+                    alert("Deleted the membership!");                        
                     self.$router.push('Home');
-                });                
+                });
             }
-            else {
-                //keep the CSI membership
-                data.child(self.uid).set({
-                    SAP: self.SAP,
-                    csiMember: self.csiMember,
-                    email: self.email,
-                    name: self.name,
-                    points: self.points,                    
-                }).then(function(){
-                    alert("Inserted!");
-                    self.$router.push('Home');
-                });                
-            }
+            else
+                alert('Check the box and then press the button.');
         }
     },
 }
