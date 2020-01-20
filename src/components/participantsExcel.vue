@@ -111,7 +111,7 @@ fields:[],
   //Code Shastra 0
 
 
-          this.$http.get('https://djcsi-b13a9.firebaseio.com/participants/cds_0.json').then(function(data){
+          this.$http.get('https://djcsi-b13a9.firebaseio.com/participants/cds_0_20.json').then(function(data){
           var cds0=[];
           var tableFields=['csi_member','leader_college','leader_email','member 0','member 1','member 2','member 3','leader_phone','leader_name','team_name','price','status'];
 
