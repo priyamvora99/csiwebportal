@@ -136,10 +136,11 @@ export default {
 
   data (){
     return{
+    date:'',
     blog:{
     question:"",
     options:[],
-    point_weight:"",
+    point_weight:0.0,
     start_date:"",
     expiry_date:"",
     answer:"",
@@ -155,13 +156,19 @@ export default {
     },
 
     submittableDateTime () {
+        alert("cLLed");
     const start_date= new Date(this.start_date)
     const expiry_date= new Date(this.expiry_date)
+    //splitDate()
     return start_date
     return expiry_date
     },
   methods:{
-
+    splitDate:function() {
+        const date1 = new Date(this.start_date);
+        const date = date1.getDate() + "/" + (date1.getMonth() + 1) + "/" + (date1.getFullYear());
+        //console.log(date);
+    },  
     post:function(){
 
     if(this.blog.question===''){
@@ -185,7 +192,7 @@ export default {
     else if(this.blog.options[3]===''){
       alert("Please enter the option 4 ");
     }
-    else if(this.blog.point_weight===''){
+    else if(this.blog.point_weight==0.0){
       alert("Please enter the points for quiz ");
     }
     else if(this.blog.answer===''){
@@ -194,13 +201,21 @@ export default {
 
 else{
       this.$http.get("https://djcsi-b13a9.firebaseio.com/quiz.json").then(function(data){
-        console.log(data);
+        // //console.log(data);
         var pollId;
         var self=this;
         pollId=Math.max(...Object.keys(data.body));
         this.pollId=pollId+1;
         var storeData=firebase.database().ref("quiz");
+        var date1 = new Date(this.blog.start_date);
+         self.blog.start_date = date1.getDate() + "/" + (date1.getMonth() + 1) + "/" + (date1.getFullYear());
+        self.blog.start_date=self.blog.start_date.toString();
+        date1 = new Date(this.blog.expiry_date);
+         self.blog.expiry_date = date1.getDate() + "/" + (date1.getMonth() + 1) + "/" + (date1.getFullYear());
+        self.blog.expiry_date=self.blog.expiry_date.toString();
 
+        self.blog.point_weight = Number(self.blog.point_weight);
+        // //console.log("date"+date);
           storeData.child(this.pollId).set(this.blog).then(function(){
           //  self.pollsArray[0].question='';
             self.$router.push('Home');
@@ -213,7 +228,7 @@ else{
     }
     },
 
-    editQuiz:function(){
+    editQuiz:function(){        
          this.$router.push('editQuiz');
        },
 

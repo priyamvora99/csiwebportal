@@ -118,10 +118,9 @@ fields:[],
            Object.keys(data.body).forEach(function(idx){
              var memberNumber=0;
              var membersObject=Object.assign({},data.body[idx].members);
-             Object.keys(membersObject).forEach(function(index){
-               data.body[idx]["member "+memberNumber]=membersObject[memberNumber];
-                memberNumber+=1;
-
+             Object.keys(membersObject).forEach(function(index){                
+                data.body[idx]["member "+memberNumber] = membersObject[memberNumber].name;
+                memberNumber += 1;
              });
 
              cds0.push(data.body[idx]);
@@ -129,7 +128,7 @@ fields:[],
 
          });
          self.fields=tableFields;
-      //   console.log(self.cds0);
+      //   //console.log(self.cds0);
 
           });
 
@@ -156,7 +155,7 @@ fields:[],
 
        });
        self.fields=tableFields;
-    //   console.log(self.cds1);
+    //   //console.log(self.cds1);
 
         });
 
@@ -169,7 +168,7 @@ fields:[],
            iv.push(data.body[idx]);
            self.iv=iv;
        });
-    //   console.log(self.iv);
+    //   //console.log(self.iv);
         });
 
 
@@ -194,7 +193,7 @@ fields:[],
 
        });
        self.fields=tableFields;
-    //   console.log(self.csiweek);
+    //   //console.log(self.csiweek);
 
         });
 
