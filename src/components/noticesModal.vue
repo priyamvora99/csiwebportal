@@ -72,12 +72,12 @@ export default {
           storageRef.delete().then(function(){
             self.uploadFile();
         }).catch(function(error){
-            console.log(error);
+            //console.log(error);
       });
     },
     uploadFile:function(){
       var self=this;
-      console.log('upload file: '+self.file);
+      //console.log('upload file: '+self.file);
       var storageRef = firebase.storage().ref(self.fileName);
       var uploadTask = storageRef.put(self.file);
           uploadTask.on('state_changed', function(snapshot){
@@ -101,17 +101,17 @@ export default {
         'url':self.clickedItem[1]
       }).then(function(){
 
-          console.log('Updated in the db');
+          //console.log('Updated in the db');
           self.$emit('changeStatus',false);
           self.$emit('emitEvent');
       }).catch(function(error){
-          console.log(error);
+          //console.log(error);
       });
     },
     handleFileUpload:function(){
         this.file = this.$refs.file.files[0];
         this.fileName=this.file.name;
-        console.log(this.fileName);
+        //console.log(this.fileName);
 
       }
   }

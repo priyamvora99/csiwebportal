@@ -44,7 +44,7 @@ import firebase from 'firebase';
 
 export default {
   created(){
-      console.log(this.clickedItem);
+      //console.log(this.clickedItem);
   },
   props:{
     'showPollsModal':Boolean,
@@ -78,21 +78,21 @@ export default {
          'question':self.clickedItem[2],
          'start_date':self.clickedItem[5]
        }).catch(function(err){
-         console.log(err);
+         //console.log(err);
        }).then(function(){
          var ref1 = firebase.database().ref('polls/'+self.clickedItem[6]+'/options');
          ref1.update({
            '0':self.clickedItem[8],
            '1':self.clickedItem[11]
          }).catch(function(err1){
-            console.log(err1);
+            //console.log(err1);
          }).then(function(){
            var ref2 = firebase.database().ref('polls/'+self.clickedItem[6]+'/results');
            ref2.update({
              '0':self.clickedItem[9],
              '1':self.clickedItem[12]
            }).catch(function(err2){
-             console.log(err2);
+             //console.log(err2);
            }).then(function(){
              self.$emit('changeStatus',false);
              self.$emit('emitEvent');

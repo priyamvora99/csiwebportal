@@ -23,7 +23,7 @@ export default {
   methods:{
     anotherEvent:function(){
       this.getData();
-      console.log("emitting");
+      //console.log("emitting");
     },
     getData:function(){
       var self=this;
@@ -36,11 +36,11 @@ export default {
              propData.push(data.body[idx]);
 
          });
-            console.log(propData);
+            //console.log(propData);
            self.propData=propData;
            self.fields=tableFields;
 
-          console.log('Edit protocols: '+self.propData);
+          //console.log('Edit protocols: '+self.propData);
 
       });
 

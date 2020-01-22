@@ -96,12 +96,12 @@ export default {
           var self=this;
           var ref = firebase.database().ref('videoCategories');
           var key = this.play;
-          console.log(key);
+          //console.log(key);
           self.$http.get("https://djcsi-b13a9.firebaseio.com/videoCategories/"+key+"/videos.json").then(function(videosData){
               var videoNumber;
               videoNumber=Math.max(...Object.keys(videosData.body));
               this.videoNumber=videoNumber+1;
-              console.log(this.videoNumber);
+              //console.log(this.videoNumber);
               var ref1 = firebase.database().ref('videoCategories/'+key+'/'+'videos');
               ref1.child(self.videoNumber).set({
                 name:self.videos[0].videoName,
@@ -117,11 +117,11 @@ export default {
 
         var self=this;
         this.$http.get("https://djcsi-b13a9.firebaseio.com/videoCategories.json").then(function(data){
-          console.log(data);
+          //console.log(data);
             var playlistNumber;
             playlistNumber=Math.max(...Object.keys(data.body));
             self.playlistNumber=playlistNumber+1;
-            console.log(self.playlistNumber);
+            //console.log(self.playlistNumber);
             var ref = firebase.database().ref('videoCategories');
             ref.child(self.playlistNumber).set({
               name:self.listName,
@@ -155,7 +155,7 @@ export default {
 
         this.$http.get("https://djcsi-b13a9.firebaseio.com/videoCategories.json").then(function(data){
           self.playListNames=[];
-          console.log(data);
+          //console.log(data);
           Object.keys(data.body).forEach(function(key){
             if(data.body[key]) {
               self.playListNames.push({

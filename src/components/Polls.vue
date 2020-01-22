@@ -175,7 +175,7 @@ export default {
     }
 else{
        this.$http.get("https://djcsi-b13a9.firebaseio.com/polls.json").then(function(data){
-         console.log(data);
+         //console.log(data);
          var pollId;
          var self=this;
          pollId=Math.max(...Object.keys(data.body));

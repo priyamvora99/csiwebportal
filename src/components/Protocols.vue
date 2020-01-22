@@ -74,7 +74,7 @@ export default {
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
 
         self.protocolsArray[0].url=downloadURL;
-        console.log('Test',self.protocolsArray[0].url);
+        //console.log('Test',self.protocolsArray[0].url);
 
         self.insertToDatabase();
       });
@@ -84,13 +84,13 @@ export default {
   handleFileUpload:function(){
       this.file = this.$refs.file.files[0];
       this.fileName=this.file.name;
-      console.log(this.file);
+      //console.log(this.file);
 
     },
     insertToDatabase:function(){
       this.$http.get("https://djcsi-b13a9.firebaseio.com/protocols.json").then(function(data){
         var self=this;
-        console.log(data);
+        //console.log(data);
         var protocolId;
         protocolId=Math.max(...Object.keys(data.body));
         this.protocolId=protocolId+1;

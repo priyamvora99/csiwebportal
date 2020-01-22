@@ -50,7 +50,7 @@
                      <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
                    </v-card-text>
                    <v-card-title primary-title class="layout justify-center">
-                     <div class="headline text-xs-center">capitalize</div>
+                     <div class="headline text-xs-center">Capitalize</div>
                    </v-card-title>
                    <v-card-text>
               CSI attempts to capitalize on the abundant talent
@@ -63,7 +63,7 @@
                      <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
                    </v-card-text>
                    <v-card-title primary-title class="layout justify-center">
-                     <div class="headline">stimulate</div>
+                     <div class="headline">Stimulate</div>
                    </v-card-title>
                    <v-card-text>
                     CSI aspires to stimulate,
@@ -149,7 +149,7 @@ DJCSI represents Computer Society of India at the college level and it is affili
                      <v-icon class="blue--text text--lighten-2">email</v-icon>
                    </v-list-tile-action>
                    <v-list-tile-content>
-                     <v-list-tile-title>djcsi1718@gmail.com</v-list-tile-title>
+                     <v-list-tile-title>djcsi1920@gmail.com</v-list-tile-title>
                    </v-list-tile-content>
                  </v-list-tile>
                </v-list>
@@ -232,7 +232,7 @@ title: 'Your Logo'
 //     var returnArr = [];
 
 // var nowDate = new Date().toISOString().substr(0, 10);
-// console.log(nowDate);
+// //console.log(nowDate);
 
 //     var storeData = firebase.database().ref("quiz");
 
@@ -241,7 +241,7 @@ title: 'Your Logo'
 //     var childData = childSnapshot.val();
 //     var id=childData.id;
 //   var  expiryDate = childData.expiry_date;
-// //    console.log("Expiry date: "+ expiryDate);
+// //    //console.log("Expiry date: "+ expiryDate);
 
 //     if (nowDate > expiryDate)
 //     {
@@ -249,7 +249,7 @@ title: 'Your Logo'
 //     var item = snapshot.val();
 //     item.key = snapshot.key;
 //     returnArr.push(item);
-//    console.log("Array: "+returnArr);
+//    //console.log("Array: "+returnArr);
 //     });
 //     }
 // });
@@ -260,14 +260,14 @@ title: 'Your Logo'
 //  this.pollId=pollId+1;
 //   var PushData = firebase.database().ref("expiredQuiz");
 //     PushData.child(this.pollId).set(this.expired).then(function(){
-//     console.log("Data Inserted");
+//     //console.log("Data Inserted");
 //     });
 // });
 
 // });
-// console.log("Array: "+returnArr);
+// //console.log("Array: "+returnArr);
 // this.expired = returnArr;
-// console.log("expired node: "+this.expired);
+// //console.log("expired node: "+this.expired);
 
 
 
@@ -280,7 +280,7 @@ title: 'Your Logo'
 //                  var childData = childSnapshot.val();
 //                  var id=childData.id;
 //                  var  expiryDate = childData.expiry_date;
-//                //  console.log("Expiry date: "+ expiryDate);
+//                //  //console.log("Expiry date: "+ expiryDate);
 //                  if (nowDate > expiryDate)
 //                  {
 //                  storeData.orderByChild("expiry_date").equalTo(expiryDate)
@@ -293,7 +293,7 @@ title: 'Your Logo'
 //                  }
 //                  else
 //                  {
-//                //  console.log("No");
+//                //  //console.log("No");
 //                  }
 
 //                  });
@@ -313,7 +313,7 @@ title: 'Your Logo'
 // var childData = childSnapshot.val();
 // var id=childData.id;
 // var  expiryDate_poll = childData.expiry_date;
-// //    console.log("Expiry date: "+ expiryDate);
+// //    //console.log("Expiry date: "+ expiryDate);
 
 // if (nowDate > expiryDate_poll)
 // {
@@ -321,7 +321,7 @@ title: 'Your Logo'
 // var item = snapshot.val();
 // item.key = snapshot.key;
 // returnArray.push(item);
-// console.log("Array: "+returnArray);
+// //console.log("Array: "+returnArray);
 // });
 // }
 // });
@@ -332,14 +332,14 @@ title: 'Your Logo'
 // this.pollId=pollId+1;
 // var PushData = firebase.database().ref("expiredPoll");
 // PushData.child(this.pollId).set(this.expired_poll).then(function(){
-// console.log("Data Inserted");
+// //console.log("Data Inserted");
 // });
 // });
 
 // });
-// console.log("Array: "+returnArray);
+// //console.log("Array: "+returnArray);
 // this.expired_poll = returnArray;
-// console.log("expired node: "+this.expired_poll);
+// //console.log("expired node: "+this.expired_poll);
 
 
 //            //Delete
@@ -349,7 +349,7 @@ title: 'Your Logo'
 //              var childData = childSnapshot.val();
 //              var id=childData.id;
 //              var  expiryDate_poll = childData.expiry_date;
-//            //  console.log("Expiry date: "+ expiryDate_poll);
+//            //  //console.log("Expiry date: "+ expiryDate_poll);
 //              if (nowDate > expiryDate_poll)
 //              {
 //              pollData.orderByChild("expiry_date").equalTo(expiryDate_poll)
@@ -362,7 +362,7 @@ title: 'Your Logo'
 //              }
 //              else
 //              {
-//            //  console.log("No");
+//            //  //console.log("No");
 //              }
 
 //              });

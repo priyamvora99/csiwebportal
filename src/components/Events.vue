@@ -186,8 +186,8 @@ data(){
       submittableDateTime () {
       const registrationFrom= new Date(this.registrationFrom)
       const registrationTill= new Date(this.registrationTill)
-      console.log(registrationFrom)
-      console.log(registrationTill)
+      //console.log(registrationFrom)
+      //console.log(registrationTill)
       return registrationFrom
       return registrationTill
       },
@@ -228,7 +228,7 @@ else if(this.events.type===''){
 else{
 this.$http.get("https://djcsi-b13a9.firebaseio.com/events.json").then(function(data){
 
-  console.log(data);
+  //console.log(data);
   var pollId;
   var self=this;
   pollId=Math.max(...Object.keys(data.body));

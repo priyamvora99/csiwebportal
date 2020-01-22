@@ -49,7 +49,7 @@ export default {
   methods:{
     anotherEvent:function(){
       this.getData();
-      console.log("emitting");
+      //console.log("emitting");
     },
     getData:function(){
       var self=this;
@@ -70,7 +70,7 @@ export default {
           self.propData=propData;
         });
         self.fields=tableFields;
-        console.log(self.propData);
+        //console.log(self.propData);
       });
     }
   },

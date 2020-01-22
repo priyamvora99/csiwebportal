@@ -20,8 +20,8 @@
 
 export default {
   created(){
-    console.log('edit table: '+this.propData);
-    console.log(this.showModal);
+    //console.log('edit table: '+this.propData);
+    //console.log(this.showModal);
   },
   props:{
     propData:Array,
@@ -50,7 +50,7 @@ export default {
   methods:{
     clickHandler:function(item,idx){
       this.clickedItem=Object.values(item);
-      console.log(this.clickedItem);
+      //console.log(this.clickedItem);
       this.showVideosModal = this.modalType === 'videos';
       this.showProtocolsModal=this.modalType==='protocols';
       this.showNoticesModal=this.modalType=='notices';

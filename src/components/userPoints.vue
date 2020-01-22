@@ -84,11 +84,11 @@ export default {
                 snapshot.forEach(function(childSnapshot){                                          
                     var childData = childSnapshot.val();                    
                     temp = childData.name;
-                    console.log("UID: "+childSnapshot.key); 
+                    //console.log("UID: "+childSnapshot.key); 
                     count++;
                                        
                     if(temp.localeCompare(self.name) === 0) {
-                        //console.log(childData);
+                        ////console.log(childData);
                         if(childSnapshot.hasChild("csiMember")) {
                             self.csiMember = true; 
                             self.disabled_status = false;
@@ -111,7 +111,7 @@ export default {
 
             if(flag === 0) {
                 alert('No users found.');
-                console.log(count);
+                //console.log(count);
                 self.SAP = "";
                 self.email = "";
                 self.points = 0;
@@ -122,7 +122,7 @@ export default {
             storeData.orderByChild('name').equalTo(self.name)
             .on("value",function(snapshot){                                                
                 snapshot.forEach(function(data){  
-                    console.log(data.val());
+                    //console.log(data.val());
                     var obj = data.val();
                     if(obj.csiMember) {
                         self.csiMember = obj.csiMember; 
@@ -161,11 +161,11 @@ export default {
 
             //if non-existing member enters CSI member ID, it would automatically be rejected. 
             var data = firebase.database().ref("userPoints");
-            //console.log(self.status);
+            ////console.log(self.status);
             /*data.on("value",function(snapshot){
                 check = snapshot.child(self.uid+'/csiMember').exists(); //true if exists, false if it doesn't
             });           
-            console.log("CSI member exists: "+check);        
+            //console.log("CSI member exists: "+check);        
             */                                                                        
             //keep the CSI membership
             

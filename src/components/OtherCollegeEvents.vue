@@ -113,7 +113,7 @@ export default {
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
 
         self.eventsArray[0].url=downloadURL;
-        console.log('Test',self.eventsArray[0].url);
+        //console.log('Test',self.eventsArray[0].url);
 
         self.insertToDatabase();
       });
@@ -123,13 +123,13 @@ export default {
   handleFileUpload:function(){
       this.file = this.$refs.file.files[0];
       this.fileName=this.file.name;
-      console.log(this.file);
+      //console.log(this.file);
 
     },
     insertToDatabase:function(){
       this.$http.get("https://djcsi-3e43d.firebaseio.com/intracolleges.json").then(function(data){
             
-        console.log(data);               
+        //console.log(data);               
         var self=this;
         var ID = Math.max(...Object.keys(data.body));
         this.ID = ID + 1;

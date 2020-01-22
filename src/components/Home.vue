@@ -55,8 +55,8 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
 this.userID = user.uid;
 this.userName = user.email;
-    console.log(this.userID);
-    console.log(this.userName);
+    //console.log(this.userID);
+    //console.log(this.userName);
     return this.userID;
   }
 });
@@ -64,7 +64,7 @@ this.userName = user.email;
 
 admin.auth().getUser(user.uid)
   .then(function(userRecord) {
-    console.log(userRecord.toJSON());
+    //console.log(userRecord.toJSON());
   });
 
 

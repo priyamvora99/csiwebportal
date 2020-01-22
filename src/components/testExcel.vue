@@ -78,7 +78,7 @@ fields:[]
            Object.keys(eventsObject).forEach(function(index){
              data.body[idx]["event "+eventNumber]=eventsObject[eventNumber];
               eventNumber+=1;
-console.log(data.body[idx].csi_member);
+//console.log(data.body[idx].csi_member);
            });
 
            propData.push(data.body[idx]);
@@ -86,7 +86,7 @@ console.log(data.body[idx].csi_member);
 
        });
        self.fields=tableFields;
-       console.log(self.propData);
+       //console.log(self.propData);
 
         });
 

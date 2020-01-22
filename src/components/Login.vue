@@ -71,7 +71,7 @@ components:{
           var self = this;
           self.loginFailure=false;
           firebase.auth().signInWithEmailAndPassword(this.userEmail, this.userPassword).then(function(){
-            console.log(self.userEmail);
+            //console.log(self.userEmail);
             self.loginSuccess=true;
             self.loginFailure=false;
             self.loginStatus='Logged in successfully';
@@ -79,7 +79,7 @@ components:{
 
 
           }).catch(function(error) {
-            console.log(error);
+            //console.log(error);
           var errorCode = error.code;
           var errorMessage = error.message;
           self.loginSuccess=false;

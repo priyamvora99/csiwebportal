@@ -42,7 +42,7 @@ import firebase from 'firebase';
 
 export default {
   created(){
-      console.log(this.clickedItem);
+      //console.log(this.clickedItem);
   },
   props:{
     'showQuizModal':Boolean,
@@ -76,7 +76,7 @@ export default {
          'question':self.clickedItem[4],
          'start_date':self.clickedItem[5]
        }).catch(function(err){
-         console.log(err);
+         //console.log(err);
        }).then(function(){
          var ref1 = firebase.database().ref('quiz/'+self.clickedItem[6]+'/options');
          ref1.update({
@@ -84,7 +84,7 @@ export default {
            '1':self.clickedItem[10],
            '2':self.clickedItem[12]
          }).catch(function(err1){
-            console.log(err1);
+            //console.log(err1);
          }).then(function(){
             self.$emit('changeStatus',false);
             self.$emit('emitEvent');

@@ -86,7 +86,7 @@ export default {
   post:function(){
   var self = this;
     this.$http.get("https://djcsi-b13a9.firebaseio.com/accessList.json").then(function(data){
-      console.log(data);
+      //console.log(data);
       var storeData=firebase.database().ref("accessList");
         storeData.child(this.roleName).set(this.roleArray).then(function(){
           self.roleName='';
@@ -110,14 +110,14 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
     this.userID = user.uid;
-        console.log(this.userID);
+        //console.log(this.userID);
         return this.userID;
       }
     });
 
 
     this.$http.get("https://djcsi-b13a9.firebaseio.com/userRoles.json").then(function(data){
-      console.log(data);
+      //console.log(data);
       var newRole = {};
       newRole[this.userID] = this.roleName;
 

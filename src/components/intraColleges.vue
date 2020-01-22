@@ -74,12 +74,12 @@ export default {
       fileName:'',
       organizer: ''
     }
-  },
-  submittableDateTime () {
-    const date= new Date(this.date);
+  },  
+  submittableDateTime () {        
+    const date= new Date(this.date);   
     return date;
   },
-  methods:{
+  methods:{      
     postFileAndGetURL:function(){
       var self = this;
       if(this.fileName===''){
@@ -91,13 +91,13 @@ export default {
         var uploadTask = storageRef.put(this.file);
         uploadTask.on('state_changed', function(snapshot){
       }, function(error) {
-          console.log(error);
+          //console.log(error);
       }, function() {
 
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-        console.log(downloadURL);
+        //console.log(downloadURL);
         self.eventsArray[0].url=downloadURL;
-        console.log('Test',self.eventsArray[0].url);
+        //console.log('Test',self.eventsArray[0].url);
 
         self.insertToDatabase();
       });
@@ -107,14 +107,14 @@ export default {
   handleFileUpload:function(){
       this.file = this.$refs.file.files[0];
       this.fileName=this.file.name;
-      console.log(this.file);
+      //console.log(this.file);
 
     },
     insertToDatabase:function(){
-        console.log("in insert");
+        //console.log("in insert");
        this.$http.get("https://djcsi-b13a9.firebaseio.com/intracolleges.json").then(function(data){
             
-         console.log(data);               
+         //console.log(data);               
          var self = this;
          var ID = Math.max(...Object.keys(data.body));
          this.ID = ID + 1;

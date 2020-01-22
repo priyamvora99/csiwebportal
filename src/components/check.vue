@@ -55,7 +55,7 @@ expired_poll:[],
     var returnArr = [];
 
 var nowDate = new Date().toISOString().substr(0, 10);
-console.log(nowDate);
+//console.log(nowDate);
 
     var storeData = firebase.database().ref("quiz");
 
@@ -64,7 +64,7 @@ console.log(nowDate);
     var childData = childSnapshot.val();
     var id=childData.id;
   var  expiryDate = childData.expiry_date;
-//    console.log("Expiry date: "+ expiryDate);
+//    //console.log("Expiry date: "+ expiryDate);
 
     if (nowDate > expiryDate)
     {
@@ -72,7 +72,7 @@ console.log(nowDate);
     var item = snapshot.val();
     item.key = snapshot.key;
     returnArr.push(item);
-   console.log("Array: "+returnArr);
+   //console.log("Array: "+returnArr);
     });
     }
 });
@@ -83,14 +83,14 @@ self.$http.get("https://djcsi-3e43d.firebaseio.com/expiredQuiz.json").then(funct
  this.pollId=pollId+1;
   var PushData = firebase.database().ref("expiredQuiz");
     PushData.child(this.pollId).set(this.expired).then(function(){
-    console.log("Data Inserted");
+    //console.log("Data Inserted");
     });
 });
 
 });
-console.log("Array: "+returnArr);
+//console.log("Array: "+returnArr);
 this.expired = returnArr;
-console.log("expired node: "+this.expired);
+//console.log("expired node: "+this.expired);
 
 
 
@@ -103,7 +103,7 @@ console.log("expired node: "+this.expired);
                  var childData = childSnapshot.val();
                  var id=childData.id;
                  var  expiryDate = childData.expiry_date;
-               //  console.log("Expiry date: "+ expiryDate);
+               //  //console.log("Expiry date: "+ expiryDate);
                  if (nowDate > expiryDate)
                  {
                  storeData.orderByChild("expiry_date").equalTo(expiryDate)
@@ -116,7 +116,7 @@ console.log("expired node: "+this.expired);
                  }
                  else
                  {
-               //  console.log("No");
+               //  //console.log("No");
                  }
 
                  });
@@ -136,7 +136,7 @@ snapshot.forEach(function(childSnapshot) {
 var childData = childSnapshot.val();
 var id=childData.id;
 var  expiryDate_poll = childData.expiry_date;
-//    console.log("Expiry date: "+ expiryDate);
+//    //console.log("Expiry date: "+ expiryDate);
 
 if (nowDate > expiryDate_poll)
 {
@@ -144,7 +144,7 @@ pollData.orderByChild("expiry_date").equalTo(expiryDate_poll).on("child_added", 
 var item = snapshot.val();
 item.key = snapshot.key;
 returnArray.push(item);
-console.log("Array: "+returnArray);
+//console.log("Array: "+returnArray);
 });
 }
 });
@@ -155,14 +155,14 @@ pollId=Math.max(...Object.keys(data.body));
 this.pollId=pollId+1;
 var PushData = firebase.database().ref("expiredPoll");
 PushData.child(this.pollId).set(this.expired_poll).then(function(){
-console.log("Data Inserted");
+//console.log("Data Inserted");
 });
 });
 
 });
-console.log("Array: "+returnArray);
+//console.log("Array: "+returnArray);
 this.expired_poll = returnArray;
-console.log("expired node: "+this.expired_poll);
+//console.log("expired node: "+this.expired_poll);
 
 
            //Delete
@@ -172,7 +172,7 @@ console.log("expired node: "+this.expired_poll);
              var childData = childSnapshot.val();
              var id=childData.id;
              var  expiryDate_poll = childData.expiry_date;
-           //  console.log("Expiry date: "+ expiryDate_poll);
+           //  //console.log("Expiry date: "+ expiryDate_poll);
              if (nowDate > expiryDate_poll)
              {
              pollData.orderByChild("expiry_date").equalTo(expiryDate_poll)
@@ -185,7 +185,7 @@ console.log("expired node: "+this.expired_poll);
              }
              else
              {
-           //  console.log("No");
+           //  //console.log("No");
              }
 
              });

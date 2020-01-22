@@ -63,14 +63,14 @@ export default {
          'rating':self.clickedItem[5],
          'thumb':self.clickedItem[6]
        }).catch(function(err){
-         console.log(err);
+         //console.log(err);
        }).then(function(){
          var ref1 = firebase.database().ref('videoCategories/'+self.clickedItem[2]+'/videos/'+self.clickedItem[3]);
          ref1.update({
            'name':self.clickedItem[0],
            'youtubeId':self.clickedItem[1]
          }).catch(function(err1){
-            console.log(err1);
+            //console.log(err1);
          }).then(function(){
             self.$emit('changeStatus',false);
             self.$emit('emitEvent');

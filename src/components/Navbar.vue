@@ -45,26 +45,26 @@ export default {
   },
   methods:{
     loadNavbar:function(){
-      console.log("Show home: "+state.showHome);
+      //console.log("Show home: "+state.showHome);
       var self=this;
       firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
 
-        console.log(user);
+        //console.log(user);
         var uid;
         var userRole;
         var accessList=[];
-        console.log("navbar load ", self.loaded);
+        //console.log("navbar load ", self.loaded);
         if (user != null && !self.loaded) {
 
           uid = user.uid;
 
           self.$http.get("https://djcsi-b13a9.firebaseio.com/userRoles.json").then(function(data){
-              console.log("Test one");
+              //console.log("Test one");
             userRole=data.body[uid];
             self.$http.get("https://djcsi-b13a9.firebaseio.com/accessList/"+userRole+".json").then(function(data1){
-              console.log("Test two");
-              console.log(data1);
+              //console.log("Test two");
+              //console.log(data1);
               if(data1 && data1.body){
                 self.showHome=true;
                 for(var i=0;i<data1.body.length ;i++) {
@@ -108,7 +108,7 @@ export default {
     signOut:function(){
       var self=this;
         firebase.auth().signOut().then(function() {
-          console.log("Signout 1",self.loaded);
+          //console.log("Signout 1",self.loaded);
 
           self.loaded=false;
           self.showHome=false;
@@ -126,10 +126,10 @@ export default {
           self.showIntraColleges = false;
           self.showUserPoints = false;
 
-          console.log("Signout 2",self.loaded);
+          //console.log("Signout 2",self.loaded);
             self.$router.push('/');
             }).catch(function(error) {
-                console.log(error);
+                //console.log(error);
             });
     },
 

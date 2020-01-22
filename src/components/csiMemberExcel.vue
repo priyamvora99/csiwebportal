@@ -73,9 +73,9 @@ csiMember_Timestamp:"",
             {
 
                     var milliseconds = new Date().getTime();
-                          //    console.log(milliseconds);
+                          //    //console.log(milliseconds);
                     var millis = new Date("Jan 30 2019 00:00:00").getTime();
-                    console.log(millis);
+                    //console.log(millis);
                   
                     var csiMember_Timestamp = [];
                     var returnArr = [];
@@ -93,7 +93,7 @@ csiMember_Timestamp:"",
                             if(childSnapshot.hasChild("csiMember")) {
 
                                 var membershipValidity = childData.csiMember;
-                                console.log("Validity" + membershipValidity);
+                                //console.log("Validity" + membershipValidity);
                                 if(milliseconds < membershipValidity) {
                                   var item = childData;
                                   item.key = childData.key;
@@ -109,7 +109,7 @@ csiMember_Timestamp:"",
 
 
                     this.blogs = returnArr;
-                    console.log("CSI MEMEBERS: "+this.blogs);
+                    //console.log("CSI MEMEBERS: "+this.blogs);
 
 }
 
